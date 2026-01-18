@@ -1,4 +1,4 @@
-# Flask Greeting Application 🚀
+# Flask Application 🚀
 
 This task is a simple Flask web application that takes a user name from the URL query parameter, converts it to uppercase, and displays a greeting message based on the current time of the day.
 
