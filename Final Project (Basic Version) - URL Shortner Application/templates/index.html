@@ -8,7 +8,7 @@
 <h2>URL Shortener</h2>
 
 {% if error %}
-    <p style="color:red;">{{ error }}</p>
+<p style="color:red;">{{ error }}</p>
 {% endif %}
 
 <form method="POST">
@@ -17,8 +17,34 @@
 </form>
 
 {% if short_url %}
-    <p>Shortened URL:</p>
+    <p><strong>Shortened URL:</strong></p>
     <input type="text" value="{{ short_url }}" readonly>
+{% endif %}
+
+<hr>
+
+<h3>URL History</h3>
+
+{% if urls %}
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+    </tr>
+
+    {% for url in urls %}
+    <tr>
+        <td>{{ url.original_url }}</td>
+        <td>
+            <a href="{{ request.host_url }}{{ url.short_code }}" target="_blank">
+                {{ request.host_url }}{{ url.short_code }}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No URLs shortened yet.</p>
 {% endif %}
 
 </body>
