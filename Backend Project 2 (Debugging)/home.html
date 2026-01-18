@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+</head>
+<body>
+
+<h2>URL Shortener</h2>
+
+<form method="POST">
+    <input type="text" name="original_url" placeholder="Enter URL" required>
+    <button type="submit">Shorten URL</button>
+</form>
+
+{% if short_url %}
+    <p>Shortened URL:</p>
+    <input type="text" value="{{ short_url }}" readonly>
+{% endif %}
+
+</body>
+</html>
